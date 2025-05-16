@@ -36,9 +36,7 @@ public class Main {
         library.addBook(historicalBook);
         library.borrowBook("Outlander", Alice);
 
-
-
-       BorrowBookInterface premiumBook = new PremiumBook(new LibraryBook("Outlander"));
+        BorrowBookInterface premiumBook = new PremiumBook(new LibraryBook("Outlander"));
         premiumBook.borrowBook(Alice);
         System.out.println("=============================");
         premiumBook.returnBook();
@@ -49,6 +47,16 @@ public class Main {
         System.out.println("=============================");
         library.returnBook("Digital Fortress");
         System.out.println("=============================");
+
+        Approver librarian = new Librarian();
+        Approver manager = new Manager();
+        Approver director = new Director();
+        librarian.setNext(manager);
+        manager.setNext(director);
+
+        librarian.approveRequest("Design Patterns", 5); // Librarian approves
+        librarian.approveRequest("Design Patterns", 10); // Manager approves
+        librarian.approveRequest("Design Patterns", 20); // Director approves
 
     }
 }
