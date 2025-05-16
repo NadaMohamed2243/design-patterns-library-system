@@ -5,11 +5,10 @@ import java.util.List;
 
 public class LibraryService {
 
-    private static LibraryService instance;
+   private static LibraryService instance;
     private List<Book> books = new ArrayList<>();
 
-    private LibraryService() {
-    }
+    private LibraryService() {}
 
     public static synchronized LibraryService getInstance() {
         if (instance == null) {

@@ -19,14 +19,14 @@ public class Main {
         User john = new User("John", false);
         User Alice = new User("Alice", true);
 
-        library.borrowBook("Harry Potter", john );
-        System.out.printf("\n"+"=============================");
+        library.borrowBook("Harry Potter", john);
+        System.out.printf("\n" + "=============================");
         library.returnBook("Harry Potter");
         System.out.println("=============================");
-        library.borrowBook("Lord of the Rings",  john);
+        library.borrowBook("Lord of the Rings", john);
         System.out.println("=============================");
-       // library.returnBook("Lord of the Rings")
-        library.borrowBook("math", john );
+        // library.returnBook("Lord of the Rings")
+        library.borrowBook("math", john);
         library.returnBook("math");
         System.out.println("=============================");
         library.borrowBook("Lord of the Rings", Alice);
@@ -36,6 +36,19 @@ public class Main {
         library.addBook(historicalBook);
         library.borrowBook("Outlander", Alice);
 
+
+
+       BorrowBookInterface premiumBook = new PremiumBook(new LibraryBook("Outlander"));
+        premiumBook.borrowBook(Alice);
+        System.out.println("=============================");
+        premiumBook.returnBook();
+        System.out.println("=============================");
+        library.borrowBook("Digital Fortress", Alice);
+        System.out.println("=============================");
+        library.borrowBook("Digital Fortress", john);
+        System.out.println("=============================");
+        library.returnBook("Digital Fortress");
+        System.out.println("=============================");
 
     }
 }
