@@ -3,11 +3,17 @@ package com;
 public class Main {
     public static void main(String[] args) {
         LibraryService library = new LibraryService();
-        Book book = new Book("Harry Potter");
-        Book physicalBook = new PhysicalBook("Lord of the Rings");
-        Book historicalBook = new HistoricalBook("Outlander");
-        library.addBook(book);
+        // Book book = new Book("Harry Potter");
+        // Book physicalBook = new PhysicalBook("Lord of the Rings");
+        // Book historicalBook = new HistoricalBook("Outlander");
+        Book physicalBook = BookFactory.createBook("physical", "Lord of the Rings");
+        Book historicalBook = BookFactory.createBook("historical", "Outlander");
+        Book book = BookFactory.createBook("ebook", "Digital Fortress");
+        // library.addBook(book);
+        // library.addBook(physicalBook);
         library.addBook(physicalBook);
+        library.addBook(historicalBook);
+        library.addBook(book);
 
         // Create users
         User john = new User("John", false);

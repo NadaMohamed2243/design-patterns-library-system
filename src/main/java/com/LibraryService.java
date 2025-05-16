@@ -7,7 +7,7 @@ public class LibraryService {
 
     private List<Book> books = new ArrayList<>();
 
-    LibraryService(){
+    public LibraryService() {
     }
 
     public void addBook(Book book) {
@@ -23,24 +23,30 @@ public class LibraryService {
         return null;
     }
 
-    public void borrowBook(String title,User user) {
+    public void borrowBook(String title, User user) {
         Book book = findBook(title);
-        if(book==null){
-            System.out.println(title+" is not found in the library.");
-        } else if (!book.isAvailable()) {
-            System.out.println(title+" is not available.");
-        }else{
-            book.borrowBook(user);
+        if (book == null) {
+            System.out.println(title + " is not found in the library.");
+        } else if (book instanceof BorrowBookInterface) {
+            BorrowBookInterface borrowable = (BorrowBookInterface) book;
+            if (!borrowable.isAvailable()) {
+                System.out.println(title + " is not available.");
+            } else {
+                borrowable.borrowBook(user);
+            }
+        } else {
+            System.out.println(title + " cannot be borrowed (not borrowable).");
         }
-
     }
 
     public void returnBook(String title) {
         Book book = findBook(title);
-        if (book != null) {
-            book.returnBook();
+        if (book == null) {
+            System.out.println(title + " is not found in the library.");
+        } else if (book instanceof BorrowBookInterface) {
+            ((BorrowBookInterface) book).returnBook();
         } else {
-            System.out.println(title+" is not found in the library.");
+            System.out.println(title + " cannot be returned (not borrowable).");
         }
     }
 }

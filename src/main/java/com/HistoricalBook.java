@@ -1,6 +1,6 @@
 package com;
 
-public class HistoricalBook extends Book {
+public class HistoricalBook extends LibraryBook {
     public HistoricalBook(String title) {
         super(title);
     }

@@ -1,6 +1,6 @@
 package com;
 
-public class PhysicalBook extends Book{
+public class PhysicalBook extends LibraryBook {
 
     public PhysicalBook(String title) {
         super(title);
@@ -12,3 +12,4 @@ public class PhysicalBook extends Book{
         System.out.println(" physical book");
     }
 }
+

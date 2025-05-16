@@ -1,6 +1,6 @@
 package com;
 
 public interface BookInterface {
-     void borrowBook(User user) ;
-     void returnBook() ;
+     String getTitle();
+     void setTitle(String title);
 }

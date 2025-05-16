@@ -3,11 +3,12 @@ package com;
 public class User {
     private String name;
     private boolean isPremium;
+
     public User(String name) {
         this.name = name;
     }
 
-    public User( String name,boolean isPremium) {
+    public User(String name, boolean isPremium) {
         this.isPremium = isPremium;
         this.name = name;
     }
@@ -28,5 +29,5 @@ public class User {
         isPremium = premium;
     }
 
-
 }
+
