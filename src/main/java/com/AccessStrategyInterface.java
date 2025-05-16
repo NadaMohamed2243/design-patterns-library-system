@@ -1,5 +1,5 @@
 package com;
 
-public interface AccessStrategy {
+public interface AccessStrategyInterface {
     void access(User user);
 }
