@@ -5,9 +5,17 @@ import java.util.List;
 
 public class LibraryService {
 
+    private static LibraryService instance;
     private List<Book> books = new ArrayList<>();
 
-    public LibraryService() {
+    private LibraryService() {
+    }
+
+    public static synchronized LibraryService getInstance() {
+        if (instance == null) {
+            instance = new LibraryService();
+        }
+        return instance;
     }
 
     public void addBook(Book book) {
