@@ -12,4 +12,3 @@ public class Manager extends Approver {
         }
     }
 }
-

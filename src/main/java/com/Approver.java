@@ -10,4 +10,3 @@ public abstract class Approver {
 
     public abstract void approveRequest(String bookTitle, int days);
 }
-

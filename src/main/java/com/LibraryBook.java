@@ -32,19 +32,20 @@ public class LibraryBook extends Book implements BorrowBookInterface {
     @Override
     public void returnBook() {
         isAvailable = true;
+        notifyObservers("Book " + getTitle() + " is now available");
     }
-
 
     // Observer pattern implementation
     // This class can notify observers about changes in the book's availability
     List<Observer> observers = new ArrayList<>();
 
-    public void addObserver(Observer o) {
-        observers.add(o);
-    }
-
     public void notifyObservers(String msg) {
         for (Observer o : observers)
             o.update(null, msg);
+    }
+
+    public void addObserver(UserObserver o) {
+        observers.add((Observer) o);
+        throw new UnsupportedOperationException("Unimplemented method 'addObserver'");
     }
 }

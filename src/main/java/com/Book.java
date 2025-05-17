@@ -1,6 +1,6 @@
 package com;
 
-public class Book implements BookInterface{
+public class Book implements BookInterface {
     private String title;
 
     public Book(String title) {
@@ -11,7 +11,6 @@ public class Book implements BookInterface{
     public void setTitle(String title) {
         this.title = title;
     }
-
 
     @Override
     public String getTitle() {

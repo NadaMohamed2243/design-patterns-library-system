@@ -2,14 +2,13 @@ package com;
 
 public class BookFactory {
     public static Book createBook(String type, String title) {
-        if (type.toLowerCase() == "physical") {
+        if ("physical".equalsIgnoreCase(type)) {
             return new PhysicalBook(title);
-        } else if (type.toLowerCase() == "historical") {
+        } else if ("historical".equalsIgnoreCase(type)) {
             return new HistoricalBook(title);
-        } else if (type.toLowerCase() == "ebook") {
+        } else if ("ebook".equalsIgnoreCase(type)) {
             return new EBook(title);
-        } else {
-            throw new IllegalArgumentException("Unknown book type");
         }
+        throw new IllegalArgumentException("Unknown book type: " + type);
     }
 }

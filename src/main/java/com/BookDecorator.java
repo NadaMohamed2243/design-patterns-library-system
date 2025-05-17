@@ -3,7 +3,7 @@ package com;
 abstract class BookDecorator implements BorrowBookInterface {
     BorrowBookInterface originalBook;
 
-    public BookDecorator(BorrowBookInterface book) {  // dependency injection
+    public BookDecorator(BorrowBookInterface book) { // dependency injection
         this.originalBook = book;
     }
 

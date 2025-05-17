@@ -58,5 +58,17 @@ public class Main {
         librarian.approveRequest("Design Patterns", 10); // Manager approves
         librarian.approveRequest("Design Patterns", 20); // Director approves
 
+        User premiumUser = new User("Alice", true);
+        User regularUser = new User("John", false);
+
+    
+        library.fullBorrowProcess(premiumUser, "Digital Fortress", 10);
+
+    
+        try {
+            library.fullBorrowProcess(regularUser, "Digital Fortress", 5);
+        } catch (PremiumRequiredException e) {
+            System.out.println("Caught expected exception: " + e.getMessage());
+        }
     }
 }

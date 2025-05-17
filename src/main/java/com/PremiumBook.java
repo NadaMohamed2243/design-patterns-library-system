@@ -8,7 +8,7 @@ public class PremiumBook extends BookDecorator {
 
     @Override
     public void borrowBook(User user) {
-        originalBook.borrowBook(user); 
+        originalBook.borrowBook(user);
         System.out.println("Extra 10 days granted for premium users.");
     }
 

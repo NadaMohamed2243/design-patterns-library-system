@@ -1,4 +1,5 @@
 package com;
+
 // Convert external JSON to our book entity
 public class ExternalBookAdapter extends LibraryBook {
     public ExternalBookAdapter(ExternalBook externalBook) {
@@ -6,4 +7,3 @@ public class ExternalBookAdapter extends LibraryBook {
         this.setAvailable(externalBook.isBorrowable());
     }
 }
-

@@ -7,8 +7,7 @@ public class Librarian extends Approver {
             System.out.println("Librarian approved the borrowing request for " + bookTitle);
         } else if (next != null) {
             next.approveRequest(bookTitle, days);
-        }
-        else {
+        } else {
             System.out.println("Request rejected: not enough authority.");
         }
     }

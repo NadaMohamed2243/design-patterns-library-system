@@ -1,7 +1,7 @@
 package com;
 
 public class PremiumEBookAccess implements AccessStrategyInterface {
-    
+
     @Override
     public void access(User user) {
         if (user.isPremium()) {
@@ -11,4 +11,3 @@ public class PremiumEBookAccess implements AccessStrategyInterface {
         }
     }
 }
-

@@ -5,11 +5,44 @@ import java.util.List;
 
 public class LibraryService {
 
-   private static LibraryService instance;
+    private static LibraryService instance;
     private List<Book> books = new ArrayList<>();
 
-    private LibraryService() {}
-    
+    private LibraryService() {
+    }
+
+    public void fullBorrowProcess(User user, String title, int days) {
+        Book book = findBook(title);
+
+        // Premium check for eBooks
+        if (book instanceof EBook && !user.isPremium()) {
+            throw new PremiumRequiredException();
+        }
+
+        // Automatic approval routing
+        getApprovalChain().approveRequest(title, days);
+
+        // Actual borrowing
+        borrowBook(title, user);
+
+        // If book wasn't available, register for notification
+        if (book instanceof BorrowBookInterface) {
+            BorrowBookInterface borrowable = (BorrowBookInterface) book;
+            if (!borrowable.isAvailable()) {
+                ((LibraryBook) book).addObserver(new UserObserver(user));
+            }
+        }
+    }
+
+    private Approver getApprovalChain() {
+        // Return your pre-configured chain (librarian→manager→director)
+        Approver librarian = new Librarian();
+        Approver manager = new Manager();
+        Approver director = new Director();
+        librarian.setNext(manager);
+        manager.setNext(director);
+        return librarian;
+    }
 
     public static synchronized LibraryService getInstance() {
         if (instance == null) {

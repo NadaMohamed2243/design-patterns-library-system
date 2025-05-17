@@ -1,13 +1,14 @@
 package com;
 
 public class UserObserver implements ObserverInterface {
-    private String name;
+    private User user;
 
-    public UserObserver(String name) {
-        this.name = name;
+    public UserObserver(User user) {
+        this.user = user;
     }
 
+    @Override
     public void update(String message) {
-        System.out.println(name + ": " + message);
+        System.out.println("Notification to " + user.getName() + ": " + message);
     }
 }
